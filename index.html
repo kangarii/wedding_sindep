@@ -1,0 +1,2624 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Wedding of Defi & Sintiya</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS Animation CDN -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Google Fonts: Cormorant Garamond (display) + DM Sans (body) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pacifico Font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    /> -->
+    <!-- 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+        tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              peach: "#E8D8CF",       // soft beige
+              coral: "#8B5E3C",       // mahogany medium
+              cream: "#F8F4F1",       // ivory cream
+              softyellow: "#EFE7E1",  // warm light beige
+              sage: "#4B2E2B",        // dark mahogany
+              sagelight: "#C8B6A6",   // light wood
+              rosegold: "#5C3A2E",    // deep mahogany brown
+            },
+            fontFamily: {
+              display: ['"Cormorant Garamond"', "serif"],
+              body: ['"DM Sans"', "sans-serif"],
+              mempelai: ["autography", "cursive"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* ── Custom Font ── */
+      @font-face {
+        font-family: "autography";
+        src: url("src/font/Autography.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <style>
+      /* ── Global ── */
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background-color: #ffffff;
+        color: #0b1f3a;
+        overflow-x: hidden;
+      }
+
+      /* ── Cover overlay ── */
+      #cover {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          160deg,
+          #eaf7ff 0%,
+          #eaf7ff 50%,
+          #f8fcff 100%
+        );
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
+      }
+      #cover.hidden-cover {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* ── Flower SVG decorations ── */
+      .flower-bg {
+        position: absolute;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      /* ── Divider line ── */
+      .ornament-line {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 auto;
+      }
+      .ornament-line::before,
+      .ornament-line::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #5dadec80, transparent);
+      }
+
+      /* ── Section backgrounds ── */
+      .section-cream {
+        background: #ffffff;
+      }
+      .section-blush {
+        background: linear-gradient(180deg, #eaf7ff 0%, #eaf7ff 100%);
+      }
+      .section-sage {
+        background: linear-gradient(180deg, #eaf7ff 0%, #d7f0ff 100%);
+      }
+
+      /* ── Carousel ── */
+      .carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+      }
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .carousel-slide {
+        min-width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(4px);
+        border: none;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 12px #0002;
+        transition: background 0.2s;
+        z-index: 10;
+      }
+      .carousel-btn:hover {
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 12px;
+      }
+      .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #bfe9ff;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.3s;
+      }
+      .carousel-dot.active {
+        background: #5dadec;
+        transform: scale(1.3);
+      }
+
+      /* ── RSVP form ── */
+      .form-input {
+        width: 100%;
+        padding: 0.65rem 1rem;
+        border: 1.5px solid #b7ddf2;
+        border-radius: 0.75rem;
+        background: #ffffff;
+        color: #0b1f3a;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .form-input:focus {
+        border-color: #5dadec;
+        box-shadow: 0 0 0 3px #5dadec20;
+      }
+      .form-label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-bottom: 6px;
+        color: #12355b;
+      }
+
+      /* ── Buttons ── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #5dadec, #bfe9ff);
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        padding: 0.75rem 2.2rem;
+        border-radius: 9999px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 18px #5dadec40;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        font-family: "DM Sans", sans-serif;
+        font-size: 1rem;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px #5dadec50;
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: transparent;
+        color: #5dadec;
+        font-weight: 500;
+        padding: 0.7rem 2rem;
+        border-radius: 9999px;
+        border: 1.5px solid #5dadec;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.95rem;
+      }
+      .btn-outline:hover {
+        background: #5dadec;
+        color: #fff;
+      }
+
+      /* ── Countdown ── */
+      .countdown-box {
+        background: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(10px);
+        border: 1px solid #b7ddf280;
+        border-radius: 1.1rem;
+        padding: 1rem 0.8rem;
+        min-width: 72px;
+        text-align: center;
+        box-shadow: 0 8px 24px #0b1f3a12;
+
+        @media (max-width: 640px) {
+          .countdown-box {
+            min-width: 58px;
+            padding: 0.7rem 0.45rem;
+            border-radius: 0.9rem;
+          }
+
+          .countdown-box span:first-child {
+            font-size: 1.5rem !important;
+            line-height: 1.2;
+          }
+
+          .countdown-box span:last-child {
+            font-size: 9px;
+            letter-spacing: 0.08em;
+          }
+
+          #countdown-wrap-card {
+            gap: 0.5rem;
+          }
+        }
+      }
+
+      /* -- Couple profile cards -- */
+      .couple-photo {
+        width: 160px;
+        height: 160px;
+        border-radius: 9999px;
+        object-fit: cover;
+        border: 6px solid #ffffff;
+        box-shadow: 0 10px 30px #0b1f3a30;
+      }
+      .couple-card {
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(10px);
+        border: 1px solid #b7ddf260;
+        border-radius: 1.75rem;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 8px 28px #0000000d;
+      }
+
+      /* -- Gift cards -- */
+      .gift-card {
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(10px);
+        border: 1px solid #b7ddf260;
+        border-radius: 1.75rem;
+        padding: 1.5rem;
+        box-shadow: 0 8px 28px #0000000d;
+      }
+      .copy-btn {
+        border: 1.5px solid #5dadec;
+        color: #5dadec;
+        border-radius: 9999px;
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+        transition: all 0.2s ease;
+      }
+      .copy-btn:hover {
+        background: #5dadec;
+        color: #fff;
+      }
+
+      /* ── Islamic Elegant Floral Theme ── */
+      :root {
+        --navy: #0f2a47;
+        --navy-soft: #163b63;
+        --sky: #dbeafe;
+        --sky-mid: #93c5fd;
+        --white: #ffffff;
+        --gold: #d6b56d;
+        --gold-soft: #f7e8bd;
+      }
+
+      .islamic-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            circle at 1px 1px,
+            rgba(15, 42, 71, 0.7) 1px,
+            transparent 0
+          ),
+          linear-gradient(
+            45deg,
+            transparent 46%,
+            rgba(214, 181, 109, 0.35) 47%,
+            rgba(214, 181, 109, 0.35) 53%,
+            transparent 54%
+          );
+        background-size:
+          12px 12px,
+          24px 24px;
+      }
+
+      .arch-frame {
+        position: relative;
+        border: 1.5px solid rgba(214, 181, 109, 0.55);
+        box-shadow: 0 22px 70px rgba(15, 42, 71, 0.14);
+        overflow: hidden;
+      }
+
+      .arch-frame::before {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px solid rgba(214, 181, 109, 0.35);
+        border-radius: 999px 999px 28px 28px;
+        pointer-events: none;
+      }
+
+      .islamic-floral {
+        position: absolute;
+        pointer-events: none;
+        filter: drop-shadow(0 14px 24px rgba(15, 42, 71, 0.16));
+      }
+
+      .gold-divider {
+        width: 150px;
+        height: 1px;
+        margin: 18px auto;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        position: relative;
+      }
+
+      .gold-divider::after {
+        content: "✦";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+        color: var(--gold);
+        padding: 0 8px;
+        font-size: 14px;
+        color: var(--gold);
+        padding: 0 10px;
+        font-size: 18px;
+      }
+
+      .section-blush {
+        background: linear-gradient(
+          180deg,
+          #eff6ff 0%,
+          #ffffff 58%,
+          #dbeafe 100%
+        ) !important;
+      }
+
+      .section-sage {
+        background: linear-gradient(
+          180deg,
+          #f8fbff 0%,
+          #dbeafe 100%
+        ) !important;
+      }
+
+      .section-cream {
+        background: #ffffff !important;
+      }
+
+      .text-rosegold,
+      .text-coral {
+        color: var(--navy) !important;
+      }
+
+      .bg-gradient-to-br.from-peach.to-coral,
+      .bg-gradient-to-br.from-sagelight.to-sage,
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--navy),
+          var(--navy-soft),
+          var(--sky-mid)
+        ) !important;
+      }
+
+      .btn-outline {
+        color: var(--navy) !important;
+        border-color: var(--navy) !important;
+      }
+
+      .btn-outline:hover {
+        background: var(--navy) !important;
+        color: white !important;
+      }
+
+      .countdown-box {
+        background: rgba(255, 255, 255, 0.82) !important;
+        border: 1px solid rgba(214, 181, 109, 0.45) !important;
+        box-shadow: 0 10px 28px rgba(15, 42, 71, 0.08);
+      }
+
+      .form-input {
+        border-color: rgba(147, 197, 253, 0.75) !important;
+        background: #ffffff !important;
+      }
+
+      .form-input:focus {
+        border-color: var(--navy) !important;
+        box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.28) !important;
+      }
+
+      /* ── Enhanced Floral Decorations ── */
+      .flower-bg {
+        filter: drop-shadow(0 10px 20px rgba(30, 64, 175, 0.12));
+      }
+
+      .floral-glow {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(70px);
+        opacity: 0.18;
+        pointer-events: none;
+      }
+
+      .floral-card {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        opacity: 0.18;
+        pointer-events: none;
+      }
+
+      .petal-float {
+        animation: floatPetal 6s ease-in-out infinite;
+      }
+
+      @keyframes floatPetal {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(4deg);
+        }
+      }
+
+      /* ── QR placeholder ── */
+      .qr-frame {
+        background: #fff;
+        border: 2px solid #b7ddf2;
+        border-radius: 1rem;
+        padding: 12px;
+        display: inline-block;
+        box-shadow: 0 4px 20px #0001;
+      }
+
+      /* ── Preview-like Islamic blue decorations ── */
+      .soft-blue-bg {
+        background:
+          radial-gradient(
+            circle at 8% 30%,
+            rgba(147, 197, 253, 0.28),
+            transparent 22%
+          ),
+          radial-gradient(
+            circle at 92% 42%,
+            rgba(96, 165, 250, 0.2),
+            transparent 20%
+          ),
+          linear-gradient(180deg, #f8fbff 0%, #eef7ff 58%, #dbeafe 100%) !important;
+      }
+
+      .hanging-lantern {
+        position: absolute;
+        top: 34px;
+        width: 92px;
+        height: 210px;
+        pointer-events: none;
+        z-index: 3;
+        opacity: 0.92;
+        filter: drop-shadow(0 18px 24px rgba(15, 42, 71, 0.18));
+      }
+
+      .hanging-lantern.left {
+        left: 32px;
+      }
+
+      .hanging-lantern.right {
+        right: 32px;
+      }
+
+      .soft-flower {
+        position: absolute;
+        pointer-events: none;
+        z-index: 2;
+        filter: drop-shadow(0 16px 26px rgba(15, 42, 71, 0.14));
+      }
+
+      .hero-flower-left {
+        left: 18px;
+        bottom: 70px;
+        width: 210px;
+        opacity: 0.86;
+      }
+
+      .hero-flower-right {
+        right: 10px;
+        bottom: 54px;
+        width: 230px;
+        opacity: 0.9;
+      }
+
+      .star-ornament {
+        position: absolute;
+        pointer-events: none;
+        z-index: 2;
+        opacity: 0.75;
+        filter: drop-shadow(0 10px 18px rgba(15, 42, 71, 0.14));
+      }
+
+      .star-ornament.left {
+        left: 56px;
+        top: 38%;
+        width: 170px;
+      }
+
+      .star-ornament.right {
+        right: 64px;
+        top: 47%;
+        width: 145px;
+        opacity: 0.35;
+      }
+
+      @media (max-width: 640px) {
+        .hanging-lantern {
+          width: 62px;
+          height: 150px;
+          top: 20px;
+          opacity: 0.65;
+        }
+        .hanging-lantern.left {
+          left: 8px;
+        }
+        .hanging-lantern.right {
+          right: 8px;
+        }
+        .hero-flower-left {
+          width: 150px;
+          left: -40px;
+          bottom: 60px;
+          opacity: 0.55;
+        }
+        .hero-flower-right {
+          width: 170px;
+          right: -45px;
+          bottom: 52px;
+          opacity: 0.62;
+        }
+        .star-ornament.left {
+          width: 115px;
+          left: -18px;
+          top: 48%;
+          opacity: 0.45;
+        }
+        .star-ornament.right {
+          width: 105px;
+          right: -30px;
+          top: 53%;
+          opacity: 0.25;
+        }
+      }
+
+      /* Responsive Bismillah */
+      .bismillah-img {
+        width: min(560px, 72vw);
+        max-width: 560px;
+        height: auto;
+        display: block;
+        margin-inline: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 6px 14px rgba(15, 42, 71, 0.1));
+      }
+
+      @media (max-width: 1024px) {
+        .bismillah-img {
+          width: min(460px, 78vw);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .bismillah-img {
+          width: min(300px, 82vw);
+        }
+      }
+      /* ── Music Toggle Button ── */
+      .music-toggle {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 9998;
+        width: 54px;
+        height: 54px;
+        border-radius: 9999px;
+        border: 1.5px solid rgba(214, 181, 109, 0.7);
+        background: linear-gradient(135deg, #0f2a47, #163b63, #93c5fd);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 12px 30px rgba(15, 42, 71, 0.28);
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .music-toggle:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 16px 38px rgba(15, 42, 71, 0.35);
+      }
+
+      .music-toggle.playing {
+        animation: musicPulse 1.8s ease-in-out infinite;
+      }
+
+      .music-toggle.playing svg {
+        animation: musicSpin 4s linear infinite;
+      }
+
+      @keyframes musicPulse {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 0 rgba(214, 181, 109, 0.45),
+            0 12px 30px rgba(15, 42, 71, 0.28);
+        }
+        50% {
+          box-shadow:
+            0 0 0 12px rgba(214, 181, 109, 0),
+            0 16px 38px rgba(15, 42, 71, 0.35);
+        }
+      }
+
+      @keyframes musicSpin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── Mahogany Theme Override ── */
+      :root {
+        --navy: #4a1f14;
+        --navy-soft: #6b2e1e;
+        --sky: #f5ece3;
+        --sky-mid: #a26749;
+        --white: #fffdfb;
+        --gold: #c08b5c;
+        --gold-soft: #e8d4c2;
+      }
+
+      body {
+        background-color: #fffdfb !important;
+        color: #3a1c14 !important;
+      }
+
+      #cover,
+      footer {
+        background: linear-gradient(
+          160deg,
+          #f5ece3 0%,
+          #fffdfb 100%
+        ) !important;
+      }
+
+      .section-blush {
+        background: linear-gradient(
+          180deg,
+          #faf4ef 0%,
+          #fffdfb 58%,
+          #e8d4c2 100%
+        ) !important;
+      }
+
+      .section-sage {
+        background: linear-gradient(
+          180deg,
+          #fff8f3 0%,
+          #ead7c5 100%
+        ) !important;
+      }
+
+      .section-cream {
+        background: #fffdfb !important;
+      }
+
+      .soft-blue-bg {
+        background:
+          radial-gradient(
+            circle at 8% 30%,
+            rgba(162, 103, 73, 0.18),
+            transparent 22%
+          ),
+          radial-gradient(
+            circle at 92% 42%,
+            rgba(107, 46, 30, 0.14),
+            transparent 20%
+          ),
+          linear-gradient(180deg, #fffdfb 0%, #f8efe8 58%, #e8d4c2 100%) !important;
+      }
+
+      .text-rosegold,
+      .text-coral,
+      .text-sage,
+      .text-peach,
+      .text-sagelight,
+      .text-\[\#12355B\],
+      .text-\[\#0B1F3A\],
+      .text-\[\#345B7C\],
+      .text-\[\#5F7FA3\],
+      .text-\[\#7EAAC8\] {
+        color: #4a1f14 !important;
+      }
+
+      .bg-gradient-to-br.from-peach.to-coral,
+      .bg-gradient-to-br.from-sagelight.to-sage,
+      .btn-primary,
+      .music-toggle {
+        background: linear-gradient(
+          135deg,
+          #4a1f14,
+          #6b2e1e,
+          #a26749
+        ) !important;
+
+        color: #ffffff !important;
+        box-shadow: 0 10px 28px rgba(74, 31, 20, 0.25) !important;
+      }
+
+      .btn-outline,
+      .copy-btn {
+        color: #6b2e1e !important;
+        border-color: #6b2e1e !important;
+      }
+
+      .btn-outline:hover,
+      .copy-btn:hover {
+        background: #6b2e1e !important;
+        color: #ffffff !important;
+      }
+
+      .ornament-line::before,
+      .ornament-line::after,
+      .gold-divider,
+      .gold-divider::after {
+        color: #c08b5c !important;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #c08b5c,
+          transparent
+        ) !important;
+      }
+
+      .countdown-box,
+      .couple-card,
+      .gift-card,
+      .bg-white\/75,
+      .bg-white\/80,
+      .bg-white\/70,
+      .bg-white\/60 {
+        border-color: rgba(107, 46, 30, 0.12) !important;
+        box-shadow: 0 10px 28px rgba(74, 31, 20, 0.08) !important;
+      }
+
+      .form-input {
+        border-color: #d6b29a !important;
+        background: #fffdfb !important;
+        color: #3a1c14 !important;
+      }
+
+      .form-input:focus {
+        border-color: #6b2e1e !important;
+        box-shadow: 0 0 0 3px rgba(107, 46, 30, 0.12) !important;
+      }
+
+      .carousel-dot {
+        background: #d6b29a !important;
+      }
+
+      .carousel-dot.active {
+        background: #6b2e1e !important;
+      }
+
+      .qr-frame {
+        border-color: #d6b29a !important;
+      }
+
+      svg [fill="#BFE9FF"],
+      svg [fill="#D7F0FF"],
+      svg [fill="#EAF7FF"],
+      svg [fill="#B7DDF2"],
+      svg [fill="#dbeafe"],
+      svg [fill="#bfdbfe"],
+      svg [fill="#93c5fd"],
+      svg [fill="#60a5fa"],
+      svg [fill="#f7e8bd"] {
+        fill: #e8d4c2 !important;
+      }
+
+      svg [fill="#12355B"],
+      svg [fill="#0B1F3A"],
+      svg [fill="#0f2a47"],
+      svg [fill="#d6b56d"] {
+        fill: #6b2e1e !important;
+      }
+
+      svg [stroke="#5DADEC"],
+      svg [stroke="#12355B"],
+      svg [stroke="#d6b56d"],
+      svg [stroke="#93c5fd"],
+      svg [stroke="#5d8fbd"],
+      svg [stroke="#0f2a47"] {
+        stroke: #7b3f00 !important;
+      }
+
+      .floral-glow {
+        background: #c08b5c !important;
+        opacity: 0.12 !important;
+      }
+
+      .flower-bg,
+      .islamic-floral,
+      .soft-flower,
+      .star-ornament,
+      .hanging-lantern {
+        filter: drop-shadow(0 12px 22px rgba(74, 31, 20, 0.12)) !important;
+      }
+
+      img,
+      iframe {
+        filter: sepia(12%) saturate(88%);
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="src/style.css" /> -->
+  </head>
+  <body>
+    <!-- bg musik -->
+    <audio id="bg-music" loop>
+      <source src="src/bgm/bg.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button
+      id="music-toggle"
+      class="music-toggle"
+      onclick="toggleMusic()"
+      aria-label="Toggle music"
+    >
+      <svg
+        id="music-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M9 18V5l12-2v13" />
+        <circle cx="6" cy="18" r="3" />
+        <circle cx="18" cy="16" r="3" />
+      </svg>
+    </button>
+    <!-- ═══════════════════════════════════════════════
+     COVER / OPENING SCREEN
+════════════════════════════════════════════════ -->
+    <div id="cover">
+      <div class="islamic-pattern"></div>
+      <!-- top-left flower -->
+      <svg
+        class="flower-bg"
+        style="top: -30px; left: -30px; width: 260px; opacity: 0.55"
+        viewBox="0 0 300 300"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g transform="translate(80,120)">
+          <!-- Leaves -->
+          <ellipse
+            cx="0"
+            cy="-60"
+            rx="18"
+            ry="55"
+            fill="#12355B"
+            opacity=".7"
+            transform="rotate(-20)"
+          />
+          <ellipse
+            cx="0"
+            cy="-60"
+            rx="18"
+            ry="55"
+            fill="#12355B"
+            opacity=".6"
+            transform="rotate(20)"
+          />
+          <ellipse
+            cx="-40"
+            cy="-30"
+            rx="14"
+            ry="45"
+            fill="#E8D8CF"
+            opacity=".6"
+            transform="rotate(-60)"
+          />
+          <ellipse
+            cx="40"
+            cy="-30"
+            rx="14"
+            ry="45"
+            fill="#E8D8CF"
+            opacity=".6"
+            transform="rotate(60)"
+          />
+          <!-- Stems -->
+          <line
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="-90"
+            stroke="#5C3A2E"
+            stroke-width="3"
+          />
+          <line
+            x1="0"
+            y1="-20"
+            x2="-50"
+            y2="-60"
+            stroke="#5C3A2E"
+            stroke-width="2"
+          />
+          <line
+            x1="0"
+            y1="-20"
+            x2="50"
+            y2="-60"
+            stroke="#5C3A2E"
+            stroke-width="2"
+          />
+          <!-- Flower blobs -->
+          <circle cx="0" cy="-95" r="18" fill="#D8C3B5" opacity=".9" />
+          <circle cx="-4" cy="-95" r="10" fill="#A47148" opacity=".7" />
+          <circle cx="-53" cy="-65" r="14" fill="#EAF7FF" opacity=".9" />
+          <circle cx="-55" cy="-65" r="8" fill="#D8C3B5" opacity=".7" />
+          <circle cx="53" cy="-65" r="14" fill="#B7DDF2" opacity=".9" />
+          <circle cx="55" cy="-65" r="8" fill="#A47148" opacity=".7" />
+        </g>
+      </svg>
+
+      <!-- bottom-right flower -->
+      <svg
+        class="flower-bg"
+        style="
+          bottom: -20px;
+          right: -20px;
+          width: 240px;
+          opacity: 0.5;
+          transform: rotate(180deg);
+        "
+        viewBox="0 0 300 300"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g transform="translate(80,120)">
+          <ellipse
+            cx="0"
+            cy="-60"
+            rx="18"
+            ry="55"
+            fill="#E8D8CF"
+            opacity=".7"
+            transform="rotate(-20)"
+          />
+          <ellipse
+            cx="0"
+            cy="-60"
+            rx="18"
+            ry="55"
+            fill="#12355B"
+            opacity=".6"
+            transform="rotate(20)"
+          />
+          <ellipse
+            cx="-40"
+            cy="-30"
+            rx="14"
+            ry="45"
+            fill="#E8D8CF"
+            opacity=".6"
+            transform="rotate(-60)"
+          />
+          <ellipse
+            cx="40"
+            cy="-30"
+            rx="14"
+            ry="45"
+            fill="#E8D8CF"
+            opacity=".6"
+            transform="rotate(60)"
+          />
+          <line
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="-90"
+            stroke="#5C3A2E"
+            stroke-width="3"
+          />
+          <line
+            x1="0"
+            y1="-20"
+            x2="-50"
+            y2="-60"
+            stroke="#5C3A2E"
+            stroke-width="2"
+          />
+          <line
+            x1="0"
+            y1="-20"
+            x2="50"
+            y2="-60"
+            stroke="#5C3A2E"
+            stroke-width="2"
+          />
+          <circle cx="0" cy="-95" r="18" fill="#B7DDF2" opacity=".9" />
+          <circle cx="-4" cy="-95" r="10" fill="#0B1F3A" opacity=".7" />
+          <circle cx="-53" cy="-65" r="14" fill="#D8C3B5" opacity=".9" />
+          <circle cx="55" cy="-65" r="8" fill="#A47148" opacity=".7" />
+        </g>
+      </svg>
+
+      <!-- Content -->
+      <div class="text-center px-6 relative z-10">
+        <!-- small label -->
+        <p
+          class="text-xs uppercase tracking-[.35em] text-rosegold mb-4 font-body font-medium"
+        >
+          Undangan Pernikahan
+        </p>
+
+        <!-- THE WEDDING OF -->
+        <p
+          class="font-display text-base italic text-coral mb-1"
+          style="letter-spacing: 0.1em"
+        >
+          The Wedding of
+        </p>
+
+        <!-- Names -->
+        <h1
+          class="flex flex-col font-mempelai font-light text-6xl sm:text-7xl text-rosegold leading-none pt-10"
+          style="letter-spacing: -0.01em"
+        >
+          Defi
+          <span class="text-3xl sm:text-4xl text-coral">&amp;</span> Sintiya
+        </h1>
+
+        <!-- Ornament -->
+        <div class="ornament-line w-48 mx-auto my-5">
+          <span class="text-coral text-lg">✦</span>
+        </div>
+
+        <!-- Date -->
+        <p class="font-display text-xl text-[#6B4A3A] mb-8">6 Juni 2026</p>
+
+        <!-- Guest name -->
+        <div id="cover-guest" class="text-sm text-[#8A6A58] mb-8 hidden">
+          <p>Kepada Yth.</p>
+          <p
+            id="cover-guest-name"
+            class="font-display text-lg italic text-rosegold"
+          ></p>
+        </div>
+
+        <!-- Open button -->
+        <button
+          onclick="openInvitation()"
+          class="btn-primary text-base px-10 py-3"
+        >
+          Buka Undangan
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+            />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- /COVER -->
+
+    <!-- ═══════════════════════════════════════════════
+     MAIN CONTENT (hidden until cover dismissed)
+════════════════════════════════════════════════ -->
+    <main
+      id="main-content"
+      style="opacity: 0; transition: opacity 0.8s ease 0.2s"
+    >
+      <!-- ── HERO SECTION ────────────────────────────── -->
+      <section
+        class="relative min-h-screen flex flex-col items-center justify-center soft-blue-bg overflow-hidden px-6 py-20"
+      >
+        <!-- Preview-style hanging lanterns -->
+        <svg
+          class="hanging-lantern left"
+          viewBox="0 0 120 260"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="60"
+            y1="0"
+            x2="60"
+            y2="62"
+            stroke="#d6b56d"
+            stroke-width="2"
+          />
+          <circle cx="60" cy="65" r="5" fill="#d6b56d" />
+          <path
+            d="M38 86 Q60 64 82 86 L88 180 Q60 210 32 180 Z"
+            fill="#dbeafe"
+            stroke="#d6b56d"
+            stroke-width="3"
+          />
+          <path
+            d="M46 94 Q60 76 74 94 L78 170 Q60 190 42 170 Z"
+            fill="#ffffff"
+            opacity=".75"
+          />
+          <ellipse
+            cx="60"
+            cy="142"
+            rx="20"
+            ry="48"
+            fill="#f7e8bd"
+            opacity=".75"
+          />
+          <path d="M34 112 H86 M32 174 H88" stroke="#d6b56d" stroke-width="3" />
+          <path
+            d="M60 86 V188 M43 100 C52 126 52 154 43 178 M77 100 C68 126 68 154 77 178"
+            stroke="#5d8fbd"
+            stroke-width="2"
+            opacity=".65"
+          />
+          <circle cx="60" cy="205" r="4" fill="#d6b56d" />
+        </svg>
+
+        <svg
+          class="hanging-lantern right"
+          viewBox="0 0 120 260"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="60"
+            y1="0"
+            x2="60"
+            y2="62"
+            stroke="#d6b56d"
+            stroke-width="2"
+          />
+          <circle cx="60" cy="65" r="5" fill="#d6b56d" />
+          <path
+            d="M38 86 Q60 64 82 86 L88 180 Q60 210 32 180 Z"
+            fill="#dbeafe"
+            stroke="#d6b56d"
+            stroke-width="3"
+          />
+          <path
+            d="M46 94 Q60 76 74 94 L78 170 Q60 190 42 170 Z"
+            fill="#ffffff"
+            opacity=".75"
+          />
+          <ellipse
+            cx="60"
+            cy="142"
+            rx="20"
+            ry="48"
+            fill="#f7e8bd"
+            opacity=".75"
+          />
+          <path d="M34 112 H86 M32 174 H88" stroke="#d6b56d" stroke-width="3" />
+          <path
+            d="M60 86 V188 M43 100 C52 126 52 154 43 178 M77 100 C68 126 68 154 77 178"
+            stroke="#5d8fbd"
+            stroke-width="2"
+            opacity=".65"
+          />
+          <circle cx="60" cy="205" r="4" fill="#d6b56d" />
+        </svg>
+
+        <div class="text-center max-w-sm mx-auto relative z-10">
+          <!-- Bismillah -->
+          <div
+            data-aos="fade-down"
+            data-aos-duration="1000"
+            class="mb-10 flex items-center justify-center"
+          >
+            <img
+              src="src/img/bismillah.png"
+              alt="Bismillah"
+              class="bismillah-img"
+            />
+          </div>
+
+          <!-- Invite label -->
+          <p
+            data-aos="fade-down"
+            data-aos-delay="100"
+            class="text-xs uppercase tracking-[.3em] text-[#8A6A58] mb-3 font-body"
+          >
+            Kami mengundang Anda dalam acara
+          </p>
+
+          <p
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="font-display italic text-coral text-base mb-1"
+          >
+            The Wedding of
+          </p>
+
+          <h2
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            class="font-mempelai font-light text-7xl sm:text-8xl text-rosegold leading-none mb-4 pt-10"
+          >
+            Defi<br /><span class="text-3xl text-coral">&amp;</span
+            ><br />Sintiya
+          </h2>
+
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            class="ornament-line w-56 mx-auto my-6"
+          >
+            <span class="text-peach text-xl">✿</span>
+          </div>
+
+          <!-- Date -->
+          <p
+            data-aos="fade-up"
+            data-aos-delay="350"
+            class="font-display text-2xl text-[#6B4A3A] mb-8"
+          >
+            6 Juni 2026
+          </p>
+
+          <!-- Guest name block -->
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            class="bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-4 mb-8 border border-[#B7DDF280] inline-block"
+            id="hero-guest-block"
+          >
+            <p class="text-[#8A6A58] text-sm font-body">
+              Kepada Yth. Bapak/Ibu/Saudara/i
+            </p>
+            <p
+              id="hero-guest-name"
+              class="font-display text-2xl italic text-rosegold mt-1"
+            >
+              Tamu Undangan
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- /HERO -->
+
+      <!-- -- MEMPELAI ---------------------------------- -->
+      <section
+        id="mempelai"
+        class="section-cream py-20 px-6 relative overflow-hidden"
+      >
+        <div class="max-w-4xl mx-auto relative z-10">
+          <p
+            data-aos="fade-down"
+            class="text-xs uppercase tracking-[.3em] text-coral text-center mb-2 font-body"
+          >
+            Mempelai
+          </p>
+          <h2
+            data-aos="fade-down"
+            data-aos-delay="100"
+            class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
+          >
+            Defi & Sintiya
+          </h2>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="gold-divider mb-12"
+          ></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div data-aos="fade-right" data-aos-delay="200" class="couple-card">
+              <img
+                class="couple-photo mx-auto mb-5"
+                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500&q=80"
+                alt="Foto Depi"
+              />
+              <p
+                class="text-xs uppercase tracking-[.25em] text-coral mb-2 font-body"
+              >
+                Mempelai Pria
+              </p>
+              <h3 class="font-display text-4xl text-rosegold mb-2">
+                Defi Gunawan (Depi)
+              </h3>
+              <p class="text-sm text-[#8A6A58] font-body leading-relaxed">
+                Putra dari Bapak Edi Mulyadi<br />& Ibu Nurul Jannah (Alm)
+              </p>
+            </div>
+
+            <div data-aos="fade-left" data-aos-delay="200" class="couple-card">
+              <img
+                class="couple-photo mx-auto mb-5"
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&q=80"
+                alt="Foto Sintiya"
+              />
+              <p
+                class="text-xs uppercase tracking-[.25em] text-sage mb-2 font-body"
+              >
+                Mempelai Wanita
+              </p>
+              <h3 class="font-display text-4xl text-[#6B4A3A] mb-2">
+                Sintiya Mardhatillah (Tia)
+              </h3>
+              <p class="text-sm text-[#8A6A58] font-body leading-relaxed">
+                Putri dari Bapak Ahmad Sayuti<br />& Ibu Sam'iyah
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /MEMPELAI -->
+
+      <!-- ── QUOTE / AYAT ───────────────────────────── -->
+      <section
+        class="section-sage py-16 px-6 text-center relative overflow-hidden"
+      >
+        <!-- leaf decorations -->
+        <svg
+          class="flower-bg"
+          style="top: 0; left: 0; width: 150px; opacity: 0.3"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse
+            cx="60"
+            cy="100"
+            rx="50"
+            ry="90"
+            fill="#12355B"
+            transform="rotate(-30 60 100)"
+          />
+          <ellipse
+            cx="100"
+            cy="70"
+            rx="40"
+            ry="75"
+            fill="#E8D8CF"
+            transform="rotate(15 100 70)"
+          />
+        </svg>
+        <svg
+          class="flower-bg"
+          style="
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            opacity: 0.3;
+            transform: rotate(180deg);
+          "
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse
+            cx="60"
+            cy="100"
+            rx="50"
+            ry="90"
+            fill="#12355B"
+            transform="rotate(-30 60 100)"
+          />
+          <ellipse
+            cx="100"
+            cy="70"
+            rx="40"
+            ry="75"
+            fill="#E8D8CF"
+            transform="rotate(15 100 70)"
+          />
+        </svg>
+
+        <div class="max-w-2xl mx-auto relative z-10">
+          <span data-aos="zoom-in" class="text-4xl text-sagelight">❧</span>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="100"
+            class="font-display italic text-xl sm:text-2xl text-[#0B1F3A] leading-relaxed mt-4"
+          >
+            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+            pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
+            dan merasa tenteram kepadanya..."
+          </p>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            class="text-sm text-[#8A6A58] mt-4 font-body"
+          >
+            — QS. Ar-Rum: 21
+          </p>
+        </div>
+      </section>
+      <!-- /QUOTE -->
+
+      <!-- ── DETAIL ACARA ────────────────────────────── -->
+      <section
+        id="acara"
+        class="section-cream py-20 px-6 relative overflow-hidden"
+      >
+        <!-- corner flower -->
+        <svg
+          class="flower-bg"
+          style="top: -20px; right: -20px; width: 200px; opacity: 0.35"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g transform="translate(80,120)">
+            <ellipse
+              cx="0"
+              cy="-60"
+              rx="16"
+              ry="50"
+              fill="#D8C3B5"
+              opacity=".6"
+              transform="rotate(-20)"
+            />
+            <ellipse
+              cx="0"
+              cy="-60"
+              rx="16"
+              ry="50"
+              fill="#B7DDF2"
+              opacity=".5"
+              transform="rotate(20)"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="-85"
+              stroke="#A47148"
+              stroke-width="2"
+            />
+            <circle cx="0" cy="-90" r="18" fill="#D8C3B5" opacity=".85" />
+            <circle cx="0" cy="-90" r="10" fill="#A47148" opacity=".6" />
+          </g>
+        </svg>
+
+        <div class="max-w-4xl mx-auto">
+          <p
+            data-aos="fade-down"
+            class="text-xs uppercase tracking-[.3em] text-coral text-center mb-2 font-body"
+          >
+            Rangkaian Acara
+          </p>
+          <h2
+            data-aos="fade-down"
+            data-aos-delay="100"
+            class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
+          >
+            Detail Acara
+          </h2>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="gold-divider mb-12"
+          ></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Akad Nikah -->
+            <div
+              data-aos="fade-right"
+              data-aos-delay="100"
+              class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[#B7DDF260] shadow-sm text-center relative overflow-hidden"
+            >
+              <!-- decorative bg -->
+              <div
+                class="absolute inset-0 opacity-5"
+                style="
+                  background: radial-gradient(
+                    circle at 80% 20%,
+                    #5dadec,
+                    transparent 60%
+                  );
+                "
+              ></div>
+
+              <!-- Icon ring -->
+              <div
+                class="w-16 h-16 rounded-full bg-gradient-to-br from-peach to-coral flex items-center justify-center mx-auto mb-5 shadow-md relative z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#fff"
+                  stroke-width="1.8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21.75c4.832-4.5 8.25-7.935 8.25-11.25a8.25 8.25 0 0 0-16.5 0c0 3.315 3.418 6.75 8.25 11.25z"
+                  />
+                </svg>
+              </div>
+              <p
+                class="text-xs uppercase tracking-[.25em] text-coral mb-2 font-body relative z-10"
+              >
+                Akad Nikah
+              </p>
+              <h3
+                class="font-display text-2xl text-rosegold mb-5 relative z-10"
+              >
+                Akad Nikah
+              </h3>
+
+              <div class="space-y-3 text-sm text-[#6B4A3A] relative z-10">
+                <div class="flex items-center gap-3 justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+<<<<<<< HEAD
+                    stroke="#12355B"
+=======
+                    stroke="#A47148"
+>>>>>>> 181a7a9e8ba728894e7b469ffb3ea472ab564ea3
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <span>Sabtu, 6 Juni 2026</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+<<<<<<< HEAD
+                    stroke="#12355B"
+=======
+                    stroke="#A47148"
+>>>>>>> 181a7a9e8ba728894e7b469ffb3ea472ab564ea3
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <span>08.00 – 10.00 WIB</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+<<<<<<< HEAD
+                    stroke="#12355B"
+=======
+                    stroke="#A47148"
+>>>>>>> 181a7a9e8ba728894e7b469ffb3ea472ab564ea3
+                    stroke-width="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span
+                    >Link cilembu, RT/RW 003/007, Kelurahan Banjar Sari, Kec.
+                    Cipocok Jaya<br /><span class="text-[#8A6A58]"
+                      >Kota Serang - Banten 42123</span
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Resepsi -->
+            <div
+              data-aos="fade-left"
+              data-aos-delay="100"
+              class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-[#B7DDF260] shadow-sm text-center relative overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 opacity-5"
+                style="
+                  background: radial-gradient(
+                    circle at 20% 80%,
+                    #bfe9ff,
+                    transparent 60%
+                  );
+                "
+              ></div>
+
+              <div
+                class="w-16 h-16 rounded-full bg-gradient-to-br from-sagelight to-sage flex items-center justify-center mx-auto mb-5 shadow-md relative z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#fff"
+                  stroke-width="1.8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M18 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2a4 4 0 0 0-4 4v2h8V6a4 4 0 0 0-4-4z"
+                  />
+                </svg>
+              </div>
+              <p
+                class="text-xs uppercase tracking-[.25em] text-sage mb-2 font-body relative z-10"
+              >
+                Resepsi Pernikahan
+              </p>
+              <h3
+                class="font-display text-2xl text-[#6B4A3A] mb-5 relative z-10"
+              >
+                Resepsi
+              </h3>
+
+              <div class="space-y-3 text-sm text-[#6B4A3A] relative z-10">
+                <div class="flex items-center gap-3 justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#5C3A2E"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <span>Sabtu, 6 Juni 2026</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#5C3A2E"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <span>11.00 – 20.00 WIB</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#5C3A2E"
+                    stroke-width="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span
+                    >Link cilembu, RT/RW 003/007, Kelurahan Banjar Sari, Kec.
+                    Cipocok Jaya<br /><span class="text-[#8A6A58]"
+                      >Kota Serang - Banten 42123</span
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /grid -->
+        </div>
+      </section>
+      <!-- /DETAIL ACARA -->
+
+      <!-- ── GALLERY / CAROUSEL ─────────────────────── -->
+      <section
+        id="galeri"
+        class="section-blush py-20 px-6 relative overflow-hidden"
+      >
+        <div class="max-w-3xl mx-auto">
+          <p
+            data-aos="fade-down"
+            class="text-xs uppercase tracking-[.3em] text-coral text-center mb-2 font-body"
+          >
+            Kenangan Kami
+          </p>
+          <h2
+            data-aos="fade-down"
+            data-aos-delay="100"
+            class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
+          >
+            Galeri Foto
+          </h2>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="gold-divider mb-12"
+          ></div>
+
+          <!-- Carousel -->
+          <div data-aos="zoom-in" data-aos-delay="200">
+            <div class="carousel-wrapper shadow-xl">
+              <div class="carousel-track" id="carousel-track">
+                <!-- Slide 1 -->
+                <img
+                  class="carousel-slide"
+                  src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80"
+                  alt="Wedding 1"
+                />
+                <!-- Slide 2 -->
+                <img
+                  class="carousel-slide"
+                  src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=900&q=80"
+                  alt="Wedding 2"
+                />
+                <!-- Slide 3 -->
+                <img
+                  class="carousel-slide"
+                  src="https://images.unsplash.com/photo-1511285560929-80b456503681?w=900&q=80"
+                  alt="Wedding 3"
+                />
+                <!-- Slide 4 -->
+                <img
+                  class="carousel-slide"
+                  src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=900&q=80"
+                  alt="Wedding 4"
+                />
+                <!-- Slide 5 -->
+                <img
+                  class="carousel-slide"
+                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=900&q=80"
+                  alt="Wedding 5"
+                />
+              </div>
+              <!-- Buttons -->
+              <button
+                class="carousel-btn"
+                style="left: 12px"
+                onclick="carouselPrev()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#A47148"
+                  stroke-width="2.5"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                class="carousel-btn"
+                style="right: 12px"
+                onclick="carouselNext()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#A47148"
+                  stroke-width="2.5"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+            <!-- Dots -->
+            <div class="carousel-dots" id="carousel-dots"></div>
+          </div>
+        </div>
+      </section>
+      <!-- /GALLERY -->
+
+      <!-- ── RSVP ──────────────────────────────────── -->
+      <section
+        id="rsvp"
+        class="section-sage py-20 px-6 relative overflow-hidden"
+      >
+        <!-- flower corner -->
+        <svg
+          class="flower-bg"
+          style="bottom: -20px; left: -20px; width: 180px; opacity: 0.35"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g transform="translate(90,220)">
+            <ellipse
+              cx="0"
+              cy="-65"
+              rx="18"
+              ry="56"
+              fill="#12355B"
+              opacity=".7"
+              transform="rotate(-25)"
+            />
+            <ellipse
+              cx="0"
+              cy="-65"
+              rx="18"
+              ry="56"
+              fill="#E8D8CF"
+              opacity=".6"
+              transform="rotate(15)"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="-95"
+              stroke="#5C3A2E"
+              stroke-width="3"
+            />
+            <circle cx="0" cy="-100" r="16" fill="#D8C3B5" opacity=".85" />
+            <circle cx="0" cy="-100" r="9" fill="#A47148" opacity=".6" />
+          </g>
+        </svg>
+
+        <div class="max-w-lg mx-auto relative z-10">
+          <p
+            data-aos="fade-down"
+            class="text-xs uppercase tracking-[.3em] text-coral text-center mb-2 font-body"
+          >
+            Konfirmasi Kehadiran
+          </p>
+
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="gold-divider mb-12"
+          ></div>
+
+          <!-- Form card -->
+          <div
+            data-aos="flip-up"
+            data-aos-delay="200"
+            class="bg-white/75 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-[#B7DDF260]"
+          >
+            <!-- Success message (hidden by default) -->
+            <div id="rsvp-success" class="hidden text-center py-6">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-sagelight to-sage rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl text-rosegold mb-2">
+                Terima Kasih!
+              </h3>
+              <p class="text-[#6B4A3A] text-sm font-body">
+                Anda akan diarahkan ke WhatsApp untuk mengirim RSVP.<br />Terima
+                kasih atas konfirmasinya 🌸
+              </p>
+            </div>
+
+            <!-- Form -->
+            <form id="rsvp-form" onsubmit="submitRSVP(event)" class="space-y-5">
+              <!-- Nama -->
+              <div>
+                <label class="form-label" for="rsvp-nama"
+                  >Nama Lengkap <span class="text-coral">*</span></label
+                >
+                <input
+                  class="form-input"
+                  id="rsvp-nama"
+                  type="text"
+                  placeholder="Masukkan nama Anda"
+                />
+                <p id="err-nama" class="text-xs text-coral mt-1 hidden">
+                  Nama wajib diisi.
+                </p>
+              </div>
+              <!-- Jumlah tamu -->
+              <div>
+                <label class="form-label" for="rsvp-jumlah"
+                  >Jumlah Tamu <span class="text-coral">*</span></label
+                >
+                <input
+                  class="form-input"
+                  id="rsvp-jumlah"
+                  type="number"
+                  min="1"
+                  max="10"
+                  placeholder="Contoh: 2"
+                />
+                <p id="err-jumlah" class="text-xs text-coral mt-1 hidden">
+                  Jumlah tamu wajib diisi.
+                </p>
+              </div>
+              <!-- Kehadiran -->
+              <div>
+                <label class="form-label"
+                  >Kehadiran <span class="text-coral">*</span></label
+                >
+                <div class="grid grid-cols-2 gap-3">
+                  <label
+                    class="flex items-center gap-2 cursor-pointer bg-[#FFFFFF] rounded-xl px-4 py-3 border border-[#B7DDF260] hover:border-coral transition-colors"
+                  >
+                    <input
+                      type="radio"
+                      name="hadir"
+                      value="hadir"
+                      class="accent-coral"
+                    />
+                    <span class="text-sm text-[#0B1F3A]">✅ Hadir</span>
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer bg-[#FFFFFF] rounded-xl px-4 py-3 border border-[#B7DDF260] hover:border-coral transition-colors"
+                  >
+                    <input
+                      type="radio"
+                      name="hadir"
+                      value="tidak"
+                      class="accent-coral"
+                    />
+                    <span class="text-sm text-[#0B1F3A]">❌ Tidak Hadir</span>
+                  </label>
+                </div>
+                <p id="err-hadir" class="text-xs text-coral mt-1 hidden">
+                  Pilih status kehadiran.
+                </p>
+              </div>
+              <!-- Pesan -->
+              <div>
+                <label class="form-label" for="rsvp-pesan">Pesan & Doa</label>
+                <textarea
+                  class="form-input"
+                  id="rsvp-pesan"
+                  rows="3"
+                  placeholder="Tuliskan ucapan atau doa untuk kami..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary w-full text-base">
+                Kirim RSVP via WhatsApp <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg
+                  width="18px"
+                  height="18px"
+                  viewBox="0 0 24.00 24.00"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="#000000"
+                  stroke-width="0.00024000000000000003"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke="#CCCCCC"
+                    stroke-width="0.048"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"
+                      fill="#ffffff"
+                    ></path>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"
+                      fill="#ffffff"
+                    ></path>
+                  </g>
+                </svg>
+              </button>
+              <p class="text-center text-xs text-[#5F7FA3] mt-3">
+                Setelah klik tombol, Anda akan diarahkan ke WhatsApp dengan
+                format pesan otomatis.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- /RSVP -->
+
+      <!-- ── LOKASI ──────────────────────────────────── -->
+      <section
+        id="lokasi"
+        class="section-cream py-20 px-6 relative overflow-hidden"
+      >
+        <!-- flower top-right -->
+        <svg
+          class="flower-bg"
+          style="top: -10px; right: -10px; width: 160px; opacity: 0.35"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g transform="translate(70,100)">
+            <ellipse
+              cx="0"
+              cy="-55"
+              rx="15"
+              ry="48"
+              fill="#D8C3B5"
+              opacity=".65"
+              transform="rotate(-15)"
+            />
+            <ellipse
+              cx="0"
+              cy="-55"
+              rx="15"
+              ry="48"
+              fill="#B7DDF2"
+              opacity=".5"
+              transform="rotate(25)"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="-80"
+              stroke="#A47148"
+              stroke-width="2.5"
+            />
+            <circle cx="0" cy="-86" r="16" fill="#D8C3B5" opacity=".9" />
+            <circle cx="0" cy="-86" r="9" fill="#A47148" opacity=".7" />
+          </g>
+        </svg>
+
+        <div class="max-w-2xl mx-auto text-center relative z-10">
+          <p
+            data-aos="fade-down"
+            class="text-xs uppercase tracking-[.3em] text-coral mb-2 font-body"
+          >
+            Temukan Kami
+          </p>
+          <h2
+            data-aos="fade-down"
+            data-aos-delay="100"
+            class="font-display text-4xl sm:text-5xl text-rosegold mb-2"
+          >
+            Lokasi Acara
+          </h2>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="gold-divider mb-12"
+          ></div>
+
+          <!-- Gmaps -->
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            class="bg-white/80 md:w-full backdrop-blur-sm rounded-3xl p-8 border border-[#B7DDF260] shadow-sm inline-flex flex-col items-center gap-6"
+          >
+            <!-- Gmaps -->
+            <div class="qr-frame">
+              <iframe
+                class="w-56 h-36 md:w-full md:h-full"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.93197300175746!2d106.18408985228373!3d-6.142580176124346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e41f5d1707ccc2f%3A0x74baa436dd9c46fa!2sMushollah%20Cilembu!5e0!3m2!1sid!2sid!4v1778135148306!5m2!1sid!2sid"
+                width="auto"
+                height="auto"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <div class="text-center">
+              <p class="font-display text-xl text-rosegold mb-1">Google Maps</p>
+              <p class="text-sm text-[#8A6A58] mb-5 font-body">
+                atau klik tombol di bawah untuk membuka peta
+              </p>
+              <a
+                href="https://maps.app.goo.gl/h2TykfqebsuFJxds7"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Buka Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /LOKASI -->
+
+      <!-- -- WEDDING GIFT ----------------------------- -->
+      <section
+        id="gift"
+        class="section-blush py-20 px-6 relative overflow-hidden"
+      >
+        <div class="max-w-3xl mx-auto relative z-10">
+          <p
+            data-aos="fade-down"
+            class="text-xs uppercase tracking-[.3em] text-coral text-center mb-2 font-body"
+          >
+            Tanda Kasih
+          </p>
+          <h2
+            data-aos="fade-down"
+            data-aos-delay="100"
+            class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
+          >
+            Wedding Gift
+          </h2>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="gold-divider mb-12"
+          ></div>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="180"
+            class="text-center text-sm text-[#8A6A58] font-body leading-relaxed max-w-xl mx-auto mb-8"
+          >
+            Doa restu Anda merupakan hadiah terbaik bagi kami. Namun apabila
+            ingin memberikan tanda kasih, dapat melalui rekening berikut.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div data-aos="fade-right" data-aos-delay="220" class="gift-card">
+              <p
+                class="text-xs uppercase tracking-[.25em] text-coral mb-3 font-body"
+              >
+                Bank Transfer
+              </p>
+              <h3 class="font-display text-3xl text-rosegold mb-1">Muamalat</h3>
+              <p class="text-sm text-[#8A6A58] mb-4">
+                a.n. Sintiya Mardhatillah
+              </p>
+              <div
+                class="bg-[#FFFFFF] rounded-2xl px-4 py-3 border border-[#B7DDF260] flex items-center justify-between gap-3"
+              >
+                <span
+                  id="rekening-1"
+                  class="font-body text-[#0B1F3A] tracking-wider"
+                  >4930010473</span
+                >
+                <button class="copy-btn" onclick="copyText('rekening-1', this)">
+                  Salin
+                </button>
+              </div>
+            </div>
+
+            <div data-aos="fade-left" data-aos-delay="220" class="gift-card">
+              <p
+                class="text-xs uppercase tracking-[.25em] text-sage mb-3 font-body"
+              >
+                E-Wallet
+              </p>
+              <h3 class="font-display text-3xl text-[#6B4A3A] mb-1">DANA</h3>
+              <p class="text-sm text-[#8A6A58] mb-4">a.n. Defi Gunawan</p>
+              <div
+                class="bg-[#FFFFFF] rounded-2xl px-4 py-3 border border-[#B7DDF260] flex items-center justify-between gap-3"
+              >
+                <span
+                  id="rekening-2"
+                  class="font-body text-[#0B1F3A] tracking-wider"
+                  >083815772994</span
+                >
+                <button class="copy-btn" onclick="copyText('rekening-2', this)">
+                  Salin
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /WEDDING GIFT -->
+
+      <!-- -- COUNTDOWN CARD --------------------------- -->
+      <section
+        id="countdown"
+        class="section-blush py-20 px-6 relative overflow-hidden"
+      >
+        <div class="max-w-2xl mx-auto text-center relative z-10">
+          <p
+            data-aos="fade-down"
+            class="text-xs uppercase tracking-[.3em] text-coral mb-2 font-body"
+          >
+            Menuju Hari Bahagia
+          </p>
+          <h2
+            data-aos="fade-down"
+            data-aos-delay="100"
+            class="font-display text-4xl sm:text-5xl text-rosegold mb-2"
+          >
+            Countdown
+          </h2>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="150"
+            class="gold-divider mb-12"
+          ></div>
+
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            class="bg-white/70 backdrop-blur-sm rounded-3xl p-7 sm:p-9 border border-[#B7DDF260] shadow-sm"
+          >
+            <p class="font-display text-2xl text-rosegold mb-2">
+              Sabtu, 6 Juni 2026
+            </p>
+            <p class="text-sm text-[#8A6A58] mb-6 font-body">Pukul 08.00 WIB</p>
+            <div
+              class="flex flex-wrap gap-3 justify-center"
+              id="countdown-wrap-card"
+            >
+              <div class="countdown-box">
+                <span
+                  id="cd-days"
+                  class="font-display text-xl md:w-20 text-rosegold block"
+                  >--</span
+                ><span
+                  class="text-[10px] uppercase tracking-wider text-[#8A6A58]"
+                  >Hari</span
+                >
+              </div>
+              <div class="countdown-box">
+                <span
+                  id="cd-hours"
+                  class="font-display text-xl md:w-20 text-rosegold block"
+                  >--</span
+                ><span
+                  class="text-[10px] uppercase tracking-wider text-[#8A6A58]"
+                  >Jam</span
+                >
+              </div>
+              <div class="countdown-box">
+                <span
+                  id="cd-mins"
+                  class="font-display text-xl md:w-20 text-rosegold block"
+                  >--</span
+                ><span
+                  class="text-[10px] uppercase tracking-wider text-[#8A6A58]"
+                  >Menit</span
+                >
+              </div>
+              <div class="countdown-box">
+                <span
+                  id="cd-secs"
+                  class="font-display text-xl md:w-20 text-rosegold block"
+                  >--</span
+                ><span
+                  class="text-[10px] uppercase tracking-wider text-[#8A6A58]"
+                  >Detik</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /COUNTDOWN CARD -->
+
+      <!-- ── FOOTER ─────────────────────────────────── -->
+      <footer
+        class="relative overflow-hidden py-16 px-6 text-center"
+        style="
+          background: linear-gradient(
+            160deg,
+            #eaf7ff 0%,
+            #eaf7ff 60%,
+            #f8fcff 100%
+          );
+        "
+      >
+        <!-- top leaf border -->
+        <svg
+          viewBox="0 0 1200 60"
+          preserveAspectRatio="none"
+          class="absolute top-0 left-0 w-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 60 Q300 0 600 30 Q900 60 1200 0 L1200 0 L0 0 Z"
+            fill="#EAF7FF"
+            opacity=".5"
+          />
+        </svg>
+
+        <!-- flower left -->
+        <svg
+          class="flower-bg"
+          style="left: -10px; bottom: 0; width: 150px; opacity: 0.4"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g transform="translate(80,250)">
+            <ellipse
+              cx="0"
+              cy="-60"
+              rx="16"
+              ry="52"
+              fill="#12355B"
+              opacity=".7"
+              transform="rotate(-20)"
+            />
+            <ellipse
+              cx="0"
+              cy="-60"
+              rx="16"
+              ry="52"
+              fill="#E8D8CF"
+              opacity=".6"
+              transform="rotate(20)"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="-90"
+              stroke="#5C3A2E"
+              stroke-width="3"
+            />
+            <circle cx="0" cy="-96" r="16" fill="#D8C3B5" opacity=".85" />
+            <circle cx="0" cy="-96" r="9" fill="#A47148" opacity=".65" />
+          </g>
+        </svg>
+
+        <!-- flower right -->
+        <svg
+          class="flower-bg"
+          style="
+            right: -10px;
+            bottom: 0;
+            width: 140px;
+            opacity: 0.4;
+            transform: scaleX(-1);
+          "
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g transform="translate(80,250)">
+            <ellipse
+              cx="0"
+              cy="-60"
+              rx="16"
+              ry="52"
+              fill="#E8D8CF"
+              opacity=".7"
+              transform="rotate(-20)"
+            />
+            <ellipse
+              cx="0"
+              cy="-60"
+              rx="16"
+              ry="52"
+              fill="#12355B"
+              opacity=".6"
+              transform="rotate(20)"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="-90"
+              stroke="#5C3A2E"
+              stroke-width="3"
+            />
+            <circle cx="0" cy="-96" r="16" fill="#B7DDF2" opacity=".85" />
+            <circle cx="0" cy="-96" r="9" fill="#0B1F3A" opacity=".65" />
+          </g>
+        </svg>
+
+        <div class="relative z-10">
+          <div class="flex justify-center gap-6 mb-10">
+            <svg
+              class="petal-float"
+              width="70"
+              height="70"
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M100 20 C130 60 130 140 100 180 C70 140 70 60 100 20Z"
+                  fill="#93c5fd"
+                />
+                <path
+                  d="M20 100 C60 70 140 70 180 100 C140 130 60 130 20 100Z"
+                  fill="#dbeafe"
+                />
+                <circle cx="100" cy="100" r="15" fill="#dbad81" />
+              </g>
+            </svg>
+
+            <svg
+              class="petal-float"
+              style="animation-delay: 1.5s"
+              width="70"
+              height="70"
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <ellipse cx="100" cy="50" rx="28" ry="55" fill="#bfdbfe" />
+                <ellipse cx="50" cy="100" rx="55" ry="28" fill="#93c5fd" />
+                <ellipse cx="150" cy="100" rx="55" ry="28" fill="#60a5fa" />
+                <ellipse cx="100" cy="150" rx="28" ry="55" fill="#dbeafe" />
+                <circle cx="100" cy="100" r="16" fill="#dbad81" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="gold-divider mb-8"></div>
+          <p
+            data-aos="fade-down"
+            class="font-display italic text-coral text-base mb-1"
+          >
+            The Wedding of
+          </p>
+          <h2
+            data-aos="zoom-in"
+            class="font-mempelai font-light text-5xl text-rosegold mb-4"
+          >
+            Defi & Sintiya
+          </h2>
+
+          <div data-aos="zoom-in" class="ornament-line w-48 mx-auto mb-6">
+            <span class="text-peach text-xl">✿</span>
+          </div>
+
+          <p
+            data-aos="fade-up"
+            class="text-[#8A6A58] text-sm font-body leading-relaxed max-w-sm mx-auto mb-6"
+          >
+            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+            Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+          </p>
+
+          <p
+            data-aos="fade-up"
+            data-aos-delay="100"
+            class="font-display italic text-rosegold text-xl mb-1"
+          >
+            Jazakumullahu Khairan
+          </p>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="150"
+            class="text-[#8A6A58] text-xs font-body tracking-wider uppercase"
+          >
+            — Defi & Sintiya —
+          </p>
+
+          <div class="mt-10 pt-6 border-t border-[#B7DDF240]">
+            <p class="text-[#7EAAC8] text-xs font-body">
+              © 2026 YukNikah · Made with ♥ by <br />
+              <a href="https://instagram.com/kangujnx" target="_blank"
+                >kangujnx</a
+              >
+            </p>
+          </div>
+        </div>
+      </footer>
+      <!-- /FOOTER -->
+    </main>
+    <!-- /MAIN CONTENT -->
+
+    <!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════ -->
+    <script src="src/script.js"></script>
+  </body>
+</html>
