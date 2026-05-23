@@ -34,17 +34,17 @@
     />
 
     <script>
-        tailwind.config = {
+      tailwind.config = {
         theme: {
           extend: {
             colors: {
-              peach: "#E8D8CF",       // soft beige
-              coral: "#8B5E3C",       // mahogany medium
-              cream: "#F8F4F1",       // ivory cream
-              softyellow: "#EFE7E1",  // warm light beige
-              sage: "#4B2E2B",        // dark mahogany
-              sagelight: "#C8B6A6",   // light wood
-              rosegold: "#5C3A2E",    // deep mahogany brown
+              peach: "#E8D8CF", // soft beige
+              coral: "#8B5E3C", // mahogany medium
+              cream: "#F8F4F1", // ivory cream
+              softyellow: "#EFE7E1", // warm light beige
+              sage: "#4B2E2B", // dark mahogany
+              sagelight: "#C8B6A6", // light wood
+              rosegold: "#5C3A2E", // deep mahogany brown
             },
             fontFamily: {
               display: ['"Cormorant Garamond"', "serif"],
@@ -964,10 +964,18 @@
     <div id="cover">
       <div class="islamic-pattern"></div>
       <!-- top-left flower -->
-      <img src="src/img/top-left.png" alt="" style="position: fixed; left: 0; top: 0;">
+      <img
+        src="src/img/top-left.png"
+        alt=""
+        style="position: fixed; left: 0; top: 0"
+      />
 
       <!-- bottom-right flower -->
-      <img src="src/img/bot-right.png" alt="" style="position: fixed; right: 0; bottom: 0;">
+      <img
+        src="src/img/bot-right.png"
+        alt=""
+        style="position: fixed; right: 0; bottom: 0"
+      />
 
       <!-- Content -->
       <div class="text-center px-6 relative z-10">
@@ -1244,7 +1252,7 @@
             <div data-aos="fade-right" data-aos-delay="200" class="couple-card">
               <img
                 class="couple-photo mx-auto mb-5"
-                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500&q=80"
+                src="src/img/depi.png"
                 alt="Foto Depi"
               />
               <p
@@ -1263,7 +1271,7 @@
             <div data-aos="fade-left" data-aos-delay="200" class="couple-card">
               <img
                 class="couple-photo mx-auto mb-5"
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&q=80"
+                src="src/img/sin.png"
                 alt="Foto Sintiya"
               />
               <p
@@ -1446,11 +1454,7 @@
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-<<<<<<< HEAD
-                    stroke="#12355B"
-=======
                     stroke="#A47148"
->>>>>>> 181a7a9e8ba728894e7b469ffb3ea472ab564ea3
                     stroke-width="2"
                   >
                     <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -1467,11 +1471,7 @@
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-<<<<<<< HEAD
-                    stroke="#12355B"
-=======
                     stroke="#A47148"
->>>>>>> 181a7a9e8ba728894e7b469ffb3ea472ab564ea3
                     stroke-width="2"
                   >
                     <circle cx="12" cy="12" r="10" />
@@ -1486,11 +1486,7 @@
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-<<<<<<< HEAD
-                    stroke="#12355B"
-=======
                     stroke="#A47148"
->>>>>>> 181a7a9e8ba728894e7b469ffb3ea472ab564ea3
                     stroke-width="2"
                   >
                     <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
@@ -1651,31 +1647,31 @@
                 <!-- Slide 1 -->
                 <img
                   class="carousel-slide"
-                  src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80"
+                  src="src/img/carousel/1.png"
                   alt="Wedding 1"
                 />
                 <!-- Slide 2 -->
                 <img
                   class="carousel-slide"
-                  src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=900&q=80"
+                  src="src/img/carousel/2.png"
                   alt="Wedding 2"
                 />
                 <!-- Slide 3 -->
                 <img
                   class="carousel-slide"
-                  src="https://images.unsplash.com/photo-1511285560929-80b456503681?w=900&q=80"
+                  src="src/img/carousel/3.png"
                   alt="Wedding 3"
                 />
                 <!-- Slide 4 -->
                 <img
                   class="carousel-slide"
-                  src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=900&q=80"
+                  src="src/img/carousel/4.png"
                   alt="Wedding 4"
                 />
                 <!-- Slide 5 -->
                 <img
                   class="carousel-slide"
-                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=900&q=80"
+                  src="src/img/carousel/5.png"
                   alt="Wedding 5"
                 />
               </div>
@@ -1817,7 +1813,7 @@
             <form id="rsvp-form" onsubmit="submitRSVP(event)" class="space-y-5">
               <!-- Nama -->
               <div>
-                <label class="form-label" for="rsvp-nama"
+                <label class="form-label text-coral" for="rsvp-nama"
                   >Nama Lengkap <span class="text-coral">*</span></label
                 >
                 <input
@@ -1832,7 +1828,7 @@
               </div>
               <!-- Jumlah tamu -->
               <div>
-                <label class="form-label" for="rsvp-jumlah"
+                <label class="form-label text-coral" for="rsvp-jumlah"
                   >Jumlah Tamu <span class="text-coral">*</span></label
                 >
                 <input
@@ -1849,7 +1845,7 @@
               </div>
               <!-- Kehadiran -->
               <div>
-                <label class="form-label"
+                <label class="form-label text-coral"
                   >Kehadiran <span class="text-coral">*</span></label
                 >
                 <div class="grid grid-cols-2 gap-3">
@@ -1882,7 +1878,9 @@
               </div>
               <!-- Pesan -->
               <div>
-                <label class="form-label" for="rsvp-pesan">Pesan & Doa</label>
+                <label class="form-label text-coral" for="rsvp-pesan"
+                  >Pesan & Doa</label
+                >
                 <textarea
                   class="form-input"
                   id="rsvp-pesan"
