@@ -200,9 +200,9 @@ AOS.init({
 });
 
 // Disable right click
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
+// document.addEventListener("contextmenu", function (e) {
+//   e.preventDefault();
+// });
 
 // 9. Disable DevTools shortcuts
 document.addEventListener("keydown", function (e) {

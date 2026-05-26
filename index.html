@@ -965,16 +965,18 @@
       <div class="islamic-pattern"></div>
       <!-- top-left flower -->
       <img
-        src="src/img/top-left.png"
+        src="src/img/ornament/top-left.png"
         alt=""
         style="position: fixed; left: 0; top: 0"
+        class="w-72 md:w-80 soft-flower hero-flower-left petal-float pointer-events-none"
       />
 
       <!-- bottom-right flower -->
       <img
-        src="src/img/bot-right.png"
+        src="src/img/ornament/bot-right.png"
         alt=""
         style="position: fixed; right: 0; bottom: 0"
+        class="w-72 md:w-80 soft-flower hero-flower-right petal-float pointer-events-none"
       />
 
       <!-- Content -->
@@ -1059,91 +1061,18 @@
         class="relative min-h-screen flex flex-col items-center justify-center soft-blue-bg overflow-hidden px-6 py-20"
       >
         <!-- Preview-style hanging lanterns -->
-        <svg
-          class="hanging-lantern left"
-          viewBox="0 0 120 260"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            x1="60"
-            y1="0"
-            x2="60"
-            y2="62"
-            stroke="#d6b56d"
-            stroke-width="2"
-          />
-          <circle cx="60" cy="65" r="5" fill="#d6b56d" />
-          <path
-            d="M38 86 Q60 64 82 86 L88 180 Q60 210 32 180 Z"
-            fill="#dbeafe"
-            stroke="#d6b56d"
-            stroke-width="3"
-          />
-          <path
-            d="M46 94 Q60 76 74 94 L78 170 Q60 190 42 170 Z"
-            fill="#ffffff"
-            opacity=".75"
-          />
-          <ellipse
-            cx="60"
-            cy="142"
-            rx="20"
-            ry="48"
-            fill="#f7e8bd"
-            opacity=".75"
-          />
-          <path d="M34 112 H86 M32 174 H88" stroke="#d6b56d" stroke-width="3" />
-          <path
-            d="M60 86 V188 M43 100 C52 126 52 154 43 178 M77 100 C68 126 68 154 77 178"
-            stroke="#5d8fbd"
-            stroke-width="2"
-            opacity=".65"
-          />
-          <circle cx="60" cy="205" r="4" fill="#d6b56d" />
-        </svg>
-
-        <svg
-          class="hanging-lantern right"
-          viewBox="0 0 120 260"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            x1="60"
-            y1="0"
-            x2="60"
-            y2="62"
-            stroke="#d6b56d"
-            stroke-width="2"
-          />
-          <circle cx="60" cy="65" r="5" fill="#d6b56d" />
-          <path
-            d="M38 86 Q60 64 82 86 L88 180 Q60 210 32 180 Z"
-            fill="#dbeafe"
-            stroke="#d6b56d"
-            stroke-width="3"
-          />
-          <path
-            d="M46 94 Q60 76 74 94 L78 170 Q60 190 42 170 Z"
-            fill="#ffffff"
-            opacity=".75"
-          />
-          <ellipse
-            cx="60"
-            cy="142"
-            rx="20"
-            ry="48"
-            fill="#f7e8bd"
-            opacity=".75"
-          />
-          <path d="M34 112 H86 M32 174 H88" stroke="#d6b56d" stroke-width="3" />
-          <path
-            d="M60 86 V188 M43 100 C52 126 52 154 43 178 M77 100 C68 126 68 154 77 178"
-            stroke="#5d8fbd"
-            stroke-width="2"
-            opacity=".65"
-          />
-          <circle cx="60" cy="205" r="4" fill="#d6b56d" />
-        </svg>
+       <img
+        src="src/img/ornament/lantern-left.png"
+        alt=""
+        style="left: 0; top: 0"
+        class="w-40 md:w-80 soft-flower hero-flower-left absolute pointer-events-none"
+      />
+      <img
+        src="src/img/ornament/lantern-right.png"
+        alt=""
+        style="right: 0; top: 0"
+        class="w-40 md:w-80 soft-flower hero-flower-right absolute pointer-events-none"
+      />
 
         <div class="text-center max-w-sm mx-auto relative z-10">
           <!-- Bismillah -->
@@ -1155,7 +1084,7 @@
             <img
               src="src/img/bismillah.png"
               alt="Bismillah"
-              class="bismillah-img"
+              class="bismillah-img pointer-events-none"
             />
           </div>
 
@@ -1228,6 +1157,7 @@
         id="mempelai"
         class="section-cream py-20 px-6 relative overflow-hidden"
       >
+        <!-- Content -->
         <div class="max-w-4xl mx-auto relative z-10">
           <p
             data-aos="fade-down"
@@ -1240,18 +1170,16 @@
             data-aos-delay="100"
             class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
           >
-            Defi & Sintiya
+            Defi & Sintiya </br>
+            <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+              <img src="src/img/ornament/divider.png" alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
+            </div>
+          </div>
           </h2>
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="150"
-            class="gold-divider mb-12"
-          ></div>
-
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             <div data-aos="fade-right" data-aos-delay="200" class="couple-card">
               <img
-                class="couple-photo mx-auto mb-5"
+                class="couple-photo mx-auto mb-5 pointer-events-none"
                 src="src/img/depi.png"
                 alt="Foto Depi"
               />
@@ -1270,7 +1198,7 @@
 
             <div data-aos="fade-left" data-aos-delay="200" class="couple-card">
               <img
-                class="couple-photo mx-auto mb-5"
+                class="couple-photo mx-auto mb-5 pointer-events-none"
                 src="src/img/sin.png"
                 alt="Foto Sintiya"
               />
@@ -1388,14 +1316,11 @@
             data-aos-delay="100"
             class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
           >
-            Detail Acara
+            Detail Acara</br>
+            <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+              <img src="src/img/ornament/divider.png" alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
+            </div>
           </h2>
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="150"
-            class="gold-divider mb-12"
-          ></div>
-
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Akad Nikah -->
             <div
@@ -1632,45 +1557,41 @@
             data-aos-delay="100"
             class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
           >
-            Galeri Foto
+            Galeri Foto </br>
+            <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+            <img src="src/img/ornament/divider.png " alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
           </h2>
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="150"
-            class="gold-divider mb-12"
-          ></div>
-
-          <!-- Carousel -->
+        <!-- Carousel -->
           <div data-aos="zoom-in" data-aos-delay="200">
             <div class="carousel-wrapper shadow-xl">
               <div class="carousel-track" id="carousel-track">
                 <!-- Slide 1 -->
                 <img
-                  class="carousel-slide"
+                  class="carousel-slide pointer-events-none"
                   src="src/img/carousel/1.png"
                   alt="Wedding 1"
                 />
                 <!-- Slide 2 -->
                 <img
-                  class="carousel-slide"
+                  class="carousel-slide pointer-events-none"
                   src="src/img/carousel/2.png"
                   alt="Wedding 2"
                 />
                 <!-- Slide 3 -->
                 <img
-                  class="carousel-slide"
+                  class="carousel-slide pointer-events-none"
                   src="src/img/carousel/3.png"
                   alt="Wedding 3"
                 />
                 <!-- Slide 4 -->
                 <img
-                  class="carousel-slide"
+                  class="carousel-slide pointer-events-none"
                   src="src/img/carousel/4.png"
                   alt="Wedding 4"
                 />
                 <!-- Slide 5 -->
                 <img
-                  class="carousel-slide"
+                  class="carousel-slide pointer-events-none"
                   src="src/img/carousel/5.png"
                   alt="Wedding 5"
                 />
@@ -1767,16 +1688,12 @@
             data-aos="fade-down"
             class="text-xs uppercase tracking-[.3em] text-coral text-center mb-2 font-body"
           >
-            Konfirmasi Kehadiran
+            Konfirmasi Kehadiran </br>
+            <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+              <img src="src/img/ornament/divider.png" alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
+            </div>
           </p>
-
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="150"
-            class="gold-divider mb-12"
-          ></div>
-
-          <!-- Form card -->
+           <!-- Form card -->
           <div
             data-aos="flip-up"
             data-aos-delay="200"
@@ -1949,15 +1866,12 @@
             data-aos-delay="100"
             class="font-display text-4xl sm:text-5xl text-rosegold mb-2"
           >
-            Lokasi Acara
+            Lokasi Acara </br>
+            <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+              <img src="src/img/ornament/divider.png" alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
+            </div>
           </h2>
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="150"
-            class="gold-divider mb-12"
-          ></div>
-
-          <!-- Gmaps -->
+         <!-- Gmaps -->
           <div
             data-aos="zoom-in"
             data-aos-delay="200"
@@ -2025,13 +1939,11 @@
             data-aos-delay="100"
             class="font-display text-4xl sm:text-5xl text-rosegold text-center mb-2"
           >
-            Wedding Gift
+            Wedding Gift </br>
+            <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+              <img src="src/img/ornament/divider.png" alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
+            </div>
           </h2>
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="150"
-            class="gold-divider mb-12"
-          ></div>
           <p
             data-aos="fade-up"
             data-aos-delay="180"
@@ -2109,14 +2021,11 @@
             data-aos-delay="100"
             class="font-display text-4xl sm:text-5xl text-rosegold mb-2"
           >
-            Countdown
+            Countdown </br>
+            <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+              <img src="src/img/ornament/divider.png" alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
+            </div>
           </h2>
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="150"
-            class="gold-divider mb-12"
-          ></div>
-
           <div
             data-aos="zoom-in"
             data-aos-delay="200"
@@ -2202,90 +2111,7 @@
           />
         </svg>
 
-        <!-- flower left -->
-        <svg
-          class="flower-bg"
-          style="left: -10px; bottom: 0; width: 150px; opacity: 0.4"
-          viewBox="0 0 300 300"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g transform="translate(80,250)">
-            <ellipse
-              cx="0"
-              cy="-60"
-              rx="16"
-              ry="52"
-              fill="#12355B"
-              opacity=".7"
-              transform="rotate(-20)"
-            />
-            <ellipse
-              cx="0"
-              cy="-60"
-              rx="16"
-              ry="52"
-              fill="#E8D8CF"
-              opacity=".6"
-              transform="rotate(20)"
-            />
-            <line
-              x1="0"
-              y1="0"
-              x2="0"
-              y2="-90"
-              stroke="#5C3A2E"
-              stroke-width="3"
-            />
-            <circle cx="0" cy="-96" r="16" fill="#D8C3B5" opacity=".85" />
-            <circle cx="0" cy="-96" r="9" fill="#A47148" opacity=".65" />
-          </g>
-        </svg>
-
-        <!-- flower right -->
-        <svg
-          class="flower-bg"
-          style="
-            right: -10px;
-            bottom: 0;
-            width: 140px;
-            opacity: 0.4;
-            transform: scaleX(-1);
-          "
-          viewBox="0 0 300 300"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g transform="translate(80,250)">
-            <ellipse
-              cx="0"
-              cy="-60"
-              rx="16"
-              ry="52"
-              fill="#E8D8CF"
-              opacity=".7"
-              transform="rotate(-20)"
-            />
-            <ellipse
-              cx="0"
-              cy="-60"
-              rx="16"
-              ry="52"
-              fill="#12355B"
-              opacity=".6"
-              transform="rotate(20)"
-            />
-            <line
-              x1="0"
-              y1="0"
-              x2="0"
-              y2="-90"
-              stroke="#5C3A2E"
-              stroke-width="3"
-            />
-            <circle cx="0" cy="-96" r="16" fill="#B7DDF2" opacity=".85" />
-            <circle cx="0" cy="-96" r="9" fill="#0B1F3A" opacity=".65" />
-          </g>
-        </svg>
-
+        
         <div class="relative z-10">
           <div class="flex justify-center gap-6 mb-10">
             <svg
@@ -2325,8 +2151,9 @@
               </g>
             </svg>
           </div>
-
-          <div class="gold-divider mb-8"></div>
+          <div data-aos="zoom-in" data-aos-delay="150" class="flex justify-center">
+            <img src="src/img/ornament/divider.png" alt="Ornamen" class="pb-7 w-60 pointer-events-none" />
+          </div>
           <p
             data-aos="fade-down"
             class="font-display italic text-coral text-base mb-1"
@@ -2375,6 +2202,7 @@
               >
             </p>
           </div>
+          
         </div>
       </footer>
       <!-- /FOOTER -->
