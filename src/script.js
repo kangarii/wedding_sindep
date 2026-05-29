@@ -166,9 +166,7 @@ function submitRSVP(e) {
 Nama: ${nama}
 Jumlah Tamu: ${jumlah}
 Kehadiran: ${statusKehadiran}
-Pesan/Doa: ${pesan || "-"}
-
-Terima kasih.`;
+Pesan/Doa: ${pesan || "-"}`;
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(templateChat)}`;
   window.open(whatsappUrl, "_blank");
